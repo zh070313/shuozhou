@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朔州 - NFC山西旅游攻略</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", serif;
+        }
+        body {
+            background-color: #fef9f2;
+            color: #5a3e2b;
+            line-height: 1.6;
+            padding-bottom: 30px;
+        }
+        .header {
+            background-color: #f8e9d1;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #e6c9a8;
+        }
+        .header h1 {
+            font-size: 28px;
+            color: #8b4513;
+            margin-bottom: 5px;
+        }
+        .header p {
+            font-size: 14px;
+            color: #a0522d;
+        }
+        .tab-bar {
+            display: flex;
+            background-color: #f5e6d3;
+            border-bottom: 1px solid #e6c9a8;
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: none;
+            font-size: 16px;
+            color: #8b4513;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tab-btn.active {
+            background-color: #f8d7a9;
+            font-weight: bold;
+            border-bottom: 3px solid #d2691e;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .section-title {
+            font-size: 22px;
+            color: #8b4513;
+            margin: 20px 0 15px;
+            padding-left: 10px;
+            border-left: 4px solid #d2691e;
+        }
+        .item-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.1);
+            overflow: hidden;
+        }
+        .item-card img {
+            width: 100%;
+            max-height: 300px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .item-card h3 {
+            font-size: 18px;
+            color: #8b4513;
+            margin-bottom: 8px;
+        }
+        .item-card p {
+            font-size: 14px;
+            color: #6b4423;
+        }
+        .dialect-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .dialect-item {
+            background-color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(139, 69, 19, 0.1);
+        }
+        .dialect-word {
+            font-size: 16px;
+            font-weight: bold;
+            color: #8b4513;
+        }
+        .dialect-pinyin {
+            font-size: 13px;
+            color: #a0522d;
+            margin: 3px 0;
+        }
+        .dialect-mean {
+            font-size: 14px;
+            color: #6b4423;
+        }
+        .culture-intro {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.1);
+        }
+        @media (max-width: 768px) {
+            .dialect-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>朔州市</h1>
+        <p>马邑古郡 · 右玉精神</p>
+    </div>
+
+    <div class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab('route')">旅游路线</button>
+        <button class="tab-btn" onclick="switchTab('dialect')">人文方言</button>
+        <button class="tab-btn" onclick="switchTab('culture')">习俗非遗</button>
+    </div>
+
+    <!-- 旅游路线模块 -->
+    <div id="route" class="tab-content active">
+        <h2 class="section-title">常规旅游路线</h2>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/PKaA2gdVCk" alt="应县木塔">
+            <h3>应县木塔</h3>
+            <p>世界最高的木塔，辽代的古建，全塔没有一颗钉子，千年不倒，是中国古建的瑰宝，感受古人的建筑智慧与木塔的奇观。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/wQAae96xVj" alt="崇福寺">
+            <h3>崇福寺</h3>
+            <p>金代的古刹，寺里的弥陀殿是金代的古建，还有金代的彩塑与壁画，都是国宝，感受金代的古建与佛教文化的魅力。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/3uFOp7QFJx" alt="杀虎口">
+            <h3>杀虎口</h3>
+            <p>明清的长城关隘，是走西口的必经之地，这里的长城保存完好，感受走西口的历史与边塞的文化，还有晋商的传奇。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/OQkn4HQfJS" alt="雁门关">
+            <h3>雁门关</h3>
+            <p>天下九塞，雁门为首，是古代的边塞关隘，杨家将的故事在这里流传，感受边塞的壮阔与历史的厚重，还有杨家将的传奇。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/svjc7JWU5f" alt="朔州古城">
+            <h3>朔州古城</h3>
+            <p>马邑的古城，古城里的古建保存完好，城墙、城楼都很壮观，晚上的古城更是灯火辉煌，感受古城的烟火气与历史。</p>
+        </div>
+
+        <h2 class="section-title">红色研学路线</h2>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/NSX8V7w5Ps" alt="右玉纪念馆">
+            <h3>右玉纪念馆</h3>
+            <p>记录了右玉人七十多年植树造林的历程，右玉精神的发源地，从黄沙漫天到绿水青山，感悟右玉人的奉献，传承右玉精神。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/RBEeZKAxZX" alt="平型关战役遗址">
+            <h3>平型关战役遗址</h3>
+            <p>平型关大捷的发生地，这里记录了八路军的第一个大胜仗，打破了日军不可战胜的神话，感悟革命先辈的奉献，传承红色精神。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/E3D2cQsDIb" alt="晋绥边区革命纪念馆">
+            <h3>晋绥边区革命纪念馆</h3>
+            <p>晋绥抗日根据地的纪念馆，这里记录了晋绥的革命历程，是红色教育的基地，感悟革命先辈的奉献，传承红色精神。</p>
+        </div>
+    </div>
+
+    <!-- 人文方言模块 -->
+    <div id="dialect" class="tab-content">
+        <div class="culture-intro">
+            <h3>方言片区</h3>
+            <p>朔州方言属晋语大包片，保留了晋语的入声，是雁北地区的特色方言，各区县口音差异较小，承载着朔州的语言文化与历史记忆。</p>
+        </div>
+
+        <h2 class="section-title">本地方言词句</h2>
+        <div class="dialect-list">
+            <div class="dialect-item">
+                <div class="dialect-word">圪捣</div>
+                <div class="dialect-pinyin">gē dǎo</div>
+                <div class="dialect-mean">释义：捣乱、折腾</div>
+            </div>
+            <div class="dialect-item">
+                <div class="dialect-word">圪溜</div>
+                <div class="dialect-pinyin">gē liū</div>
+                <div class="dialect-mean">释义：溜达、闲逛</div>
+            </div>
+            <div class="dialect-item">
+                <div class="dialect-word">日脏</div>
+                <div class="dialect-pinyin">rì zāng</div>
+                <div class="dialect-mean">释义：脏、不干净</div>
+            </div>
+            <div class="dialect-item">
+                <div class="dialect-word">夜来</div>
+                <div class="dialect-pinyin">yè lái</div>
+                <div class="dialect-mean">释义：昨天</div>
+            </div>
+            <div class="dialect-item">
+                <div class="dialect-word">不赖</div>
+                <div class="dialect-pinyin">bù lài</div>
+                <div class="dialect-mean">释义：不错、挺好</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">人文情怀</h2>
+        <div class="culture-intro">
+            <p>朔州是马邑的古郡，边塞的宝地，这里的百姓既有雁北人的豪爽，又有右玉人的坚韧。走西口的文化在这里传承，右玉精神在这里延续，抗战时期，这里是晋绥抗日根据地的核心，平型关大捷的精神深深融入了朔州人的血脉。一代代朔州人，用自己的双手，把黄沙变成了绿洲，也传承着这份厚重的文化与精神。</p>
+        </div>
+    </div>
+
+    <!-- 习俗非遗模块 -->
+    <div id="culture" class="tab-content">
+        <h2 class="section-title">特色美食</h2>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/lOMBf4i6Hw" alt="右玉羊肉">
+            <h3>右玉羊肉</h3>
+            <p>右玉的特色美食，羊肉肉质鲜嫩，肥而不腻，清炖的羊肉汤鲜味浓，是当地人的最爱，也是朔州的特色美食，深受喜爱。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/2MwR2Gu64x" alt="朔州莜面">
+            <h3>朔州莜面</h3>
+            <p>朔州的传统美食，莜面栲栳栳，口感筋道，搭配羊肉汤，是当地人的家常饭，也是朔州的特色美食，深受百姓喜爱。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/bnO8cifsfG" alt="应县牛腰">
+            <h3>应县牛腰</h3>
+            <p>应县的特色美食，用白面制作，颜色像牛腰，松软甜润，越嚼越香，是应县的传统小吃，深受百姓喜爱，传承了百年。</p>
+        </div>
+
+        <h2 class="section-title">非遗项目</h2>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/V5WqIe6yuu" alt="晋剧">
+            <h3>晋剧</h3>
+            <p>国家级非物质文化遗产，山西的地方戏曲，曲调悠扬，表演生动，是山西四大梆子之一，深受百姓喜爱，是朔州的传统艺术。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/mQhOGO2kwF" alt="右玉道情">
+            <h3>右玉道情</h3>
+            <p>国家级非物质文化遗产，右玉的传统戏曲，曲调古朴，表演生动，是雁北的传统艺术，深受百姓喜爱，传承了千年。</p>
+        </div>
+        <div class="item-card">
+            <img src="https://aka.doubaocdn.com/s/YACAW8fVO9" alt="朔州秧歌戏">
+            <h3>朔州秧歌戏</h3>
+            <p>国家级非物质文化遗产，朔州的传统秧歌，热闹非凡，表演生动，是当地的传统艺术，常用于节庆活动，深受喜爱。</p>
+        </div>
+
+        <h2 class="section-title">传统民俗</h2>
+        <div class="culture-intro">
+            <p>朔州的传统民俗带着浓浓的雁北特色，古城庙会历史悠久，每逢庙会，各地的商贩、艺人齐聚，热闹非凡；元宵节的闹红火更是热闹，朔州秧歌、锣鼓、社火表演应有尽有。晋剧的戏曲代代传承，右玉精神更是深深融入了朔州人的血脉，展现了朔州人的质朴与坚韧，也传承着这份厚重的边塞文化。</p>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // 隐藏所有内容
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(item => {
+                item.classList.remove('active');
+            });
+            // 取消所有按钮的激活状态
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(item => {
+                item.classList.remove('active');
+            });
+            // 激活当前的
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
